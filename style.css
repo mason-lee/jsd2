@@ -1,3 +1,34 @@
-.main-header {
-  padding-left: 240px;
+body {
+
+}
+
+.top-nav {
+  height: 133px;
+}
+
+.page-title {
+  font-size: 36px;
+  line-height: 133px;
+}
+
+.main-header, main {
+  padding-left: 280px;
+}
+
+.mason-logo-wrapper {
+  padding: 36px 0;
+}
+
+.mason-logo {
+  font-size: 80px !important;
+  font-family: 'Bangers', cursive;
+}
+
+.side-nav {
+  width: 280px !important;
+}
+
+.nav-wrapper {
+  position: relative;
+  height: 100%;
 }
