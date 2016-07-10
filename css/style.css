@@ -1,3 +1,11 @@
+::selection {
+  background: #c1eee6;
+}
+
+::-moz-selection {
+  background: #c1eee6;
+}
+
 body {
     background-color: #f2f2f2;
     font-family: 'Roboto Mono', monospace;
@@ -26,19 +34,18 @@ span {
 }
 
 .header {
-    padding-top: 240px;
-    /*padding-left: 8.33333%;*/
+    padding: 240px 8.33333% 0;
 }
 
 .content {
-    margin-top: 120px;
+    padding: 120px 8.33333% 0;
 }
 
 .homework-header {
     margin-bottom: 36px;
 }
 
-.title {
+a {
     font-size: 1.25rem;
     color: #9f9f9f;
     border-bottom: 1px dotted #ccc;
@@ -51,7 +58,11 @@ span {
     transition: all 0.3s ease;
 }
 
-.title:hover {
+a:hover {
     background: #c1eee6;
     color: #444f4f;
+}
+
+a:focus {
+    color: #9f9f9f;
 }
