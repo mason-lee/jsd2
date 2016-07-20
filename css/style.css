@@ -66,3 +66,7 @@ a:hover {
 a:focus {
     color: #9f9f9f;
 }
+
+.homework-row {
+    margin-bottom: 24px;
+}

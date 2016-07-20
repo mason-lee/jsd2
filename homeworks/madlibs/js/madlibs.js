@@ -55,20 +55,21 @@ function printFavorites() {
 
 	// clear out favorites element
 	list.innerHTML = '';
-	favoritesText = favorites.join("<br>");
 
-	// TODO: concatenate all the favorites into one string
+    // TODO: concatenate all the favorites into one string
 	// - hint: loop through all the favorites
 	// - this should be stored in a variable named favoritesText
 	// - each favorite should have an html br element between it (EG: "<br>")
 
 	/**
-		This adds
+		This adds "undefined".
 	**/
 	// favorites.forEach(function(item) {
 	// 	favoritesText = favoritesText + item + "<br>";
 	// });
 
+    favoritesText = favorites.join("<br>");
+    
 	// update the list element with the new concatenated string
 	list.innerHTML = favoritesText;
 }
