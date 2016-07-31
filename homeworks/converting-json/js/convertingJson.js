@@ -43,7 +43,4 @@ http://jsonlint.com/
 Did it create a valid JSON string?
 */
 console.log(JSON.stringify(links));
-
-/* -----------------------------------------------
-    "Yes. It's a valid JSON."
--------------------------------------------------- */
+console.log("Yes. It's a valid JSON.");
