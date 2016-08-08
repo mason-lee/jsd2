@@ -24,7 +24,6 @@ function updateRestaurants(json) {
     results.innerHTML = "";
     json.restaurants.forEach(createRestaurant);
     zip.value = "";
-
 }
 
 function createRestaurant(restaurant) {
