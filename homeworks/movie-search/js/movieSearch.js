@@ -14,6 +14,7 @@ var detailsText = document.querySelector(".text");
 var errorMsgWrapper = document.querySelector(".error-msg-wrapper");
 var errorText = document.querySelector(".error-text");
 
+var spinner = document.querySelector(".spinner-wrapper");
 // Events
 // ----------------------------------------------
 form.addEventListener('submit', getMovieLists);
@@ -70,15 +71,19 @@ function getMovieLists(e) {
     errorText.innerHTML = "";
     search.classList.remove("error-border");
     errorMsgWrapper.style.display = "none";
-
+    spinner.style.display = "none";
+    
     if (searchKeyword) {
-
+        spinner.style.display = "block";
         json = reqwest({
             url: ' http://omdbapi.com/?s=' + searchKeyword,
             crossOrigin: true,
             success: function (resp) {
               updateSearchResult(resp);
-            }
+          },
+          complete: function() {
+              spinner.style.display = "none";
+          }
         });
     }
     else {

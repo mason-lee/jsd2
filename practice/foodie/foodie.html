@@ -18,12 +18,23 @@
 </form>
 
 <ul class="results">
+	<script id="restaurant-template" type="text/x-handlebars-template">
 
+		{{#each}}
+			<img src="{{image_url}}">
+	        <h2>{{name}}</h2>
+	        <p>{{address}}</p>
+		{{/each}}
+
+	</script>
+</div>
 </ul>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="js/content.js"></script>
 <script src="js/foodie.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+
 
 </body>
 </html>

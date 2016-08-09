@@ -22,10 +22,29 @@ function getRestaurants(event) {
 // ------------------------------------
 function updateRestaurants(json) {
     results.innerHTML = "";
-    json.restaurants.forEach(createRestaurant);
+    json.restaurants.forEach(createRestaurantTemplate);
+
+    var source = document.querySelector("#restaurant-template");
+    console.log(source);
     zip.value = "";
 }
 
+
+// Intro to templating.
+function createRestaurantTemplate(restaurant) {
+    var list = document.createElement("li");
+
+    var template =
+        ' <img src=" ' + restaurant.image_url + ' ">' +
+        '<h2>' + restaurant.name + '</h2>' +
+        '<p>' + restaurant.address + '</p>';
+
+    list.innerHTML = template;
+    results.appendChild(list);
+}
+
+
+// Old way of doing it.
 function createRestaurant(restaurant) {
     var list = document.createElement("li");
     var resName = document.createElement("h2");
