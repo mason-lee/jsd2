@@ -1,0 +1,20 @@
+body {
+    padding: 200px;
+}
+
+.aqua {
+    background-color: aqua;
+}
+
+.antiquewhite {
+    background-color: antiquewhite;
+}
+
+.darkorange {
+    background-color: darkorange;
+}
+
+li {
+    padding: 12px;
+    margin: 12px;
+}

@@ -136,13 +136,34 @@ button {
 }
 
 
+.empty-poster {
+	width: 30px;
+	height: 48px;
+	background-color: #F8F8F8;
+	margin-right: 10px;
+	text-align: center;
+	line-height: 48px;
+}
 
+.large-poster {
+	width: 100px;
+	height: 148px;
+	line-height: 148px;
+}
 
+.error-border {
+	border-color: #ca3e3e;
+	border-width: 2px;
+}
 
+.error-text {
+	color: #ca3e3e;
+	margin: 0 10px;
+}
 
-
-
-
+.error-msg-wrapper {
+	display: none;
+}
 
 
 /* -------------------------------- */
