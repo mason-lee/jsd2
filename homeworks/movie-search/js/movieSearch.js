@@ -19,50 +19,7 @@ var spinner = document.querySelector(".spinner-wrapper");
 // ----------------------------------------------
 form.addEventListener('submit', getMovieLists);
 
-results.addEventListener("click", function(e) {
-    var target = e.target;
-
-    if (target.tagName != "LI") {
-        target = target.closest("li");
-
-        var movieId = target.id;
-
-        json = reqwest({
-            url: 'http://omdbapi.com/?i=' + movieId,
-            crossOrigin: true,
-            success: function(resp) {
-                showMovieDetail(resp);
-            }
-        });
-    }
-
-    // if (target.closest("li") || target.tagName == "LI") {
-    //     console.log("clicked");
-    //
-    //     var movieId = e.target.id;
-    //
-    //     json = reqwest({
-    //         url: 'http://omdbapi.com/?i=' + movieId,
-    //         crossOrigin: true,
-    //         success: function(resp) {
-    //             showMovieDetail(resp);
-    //         }
-    //     });
-    // }
-    // if(target && target == "LI") {
-    //     console.log("clicked");
-    //
-    //     var movieId = e.target.id;
-    //
-    //     json = reqwest({
-    //         url: 'http://omdbapi.com/?i=' + movieId,
-    //         crossOrigin: true,
-    //         success: function(resp) {
-    //             showMovieDetail(resp);
-    //         }
-    //     });
-	// }
-});
+results.addEventListener("click", getMovieDetails);
 // Event handlers
 // ----------------------------------------------
 function getMovieLists(e) {
@@ -72,7 +29,7 @@ function getMovieLists(e) {
     search.classList.remove("error-border");
     errorMsgWrapper.style.display = "none";
     spinner.style.display = "none";
-    
+
     if (searchKeyword) {
         spinner.style.display = "block";
         json = reqwest({
@@ -93,6 +50,27 @@ function getMovieLists(e) {
     }
 }
 
+function getMovieDetails(e) {
+    spinner.style.display = "block";
+    var target = e.target;
+
+    if (target.tagName != "LI") {
+        target = target.closest("li");
+
+        var movieId = target.id;
+
+        json = reqwest({
+            url: 'http://omdbapi.com/?i=' + movieId,
+            crossOrigin: true,
+            success: function(resp) {
+                showMovieDetail(resp);
+            },
+            complete: function() {
+                spinner.style.display = "none";
+            }
+        });
+    }
+}
 // Update page
 // ----------------------------------------------
 function updateSearchResult(json) {
