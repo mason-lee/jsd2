@@ -56,20 +56,20 @@ function getMovieDetails(e) {
 
     if (target.tagName != "LI") {
         target = target.closest("li");
-
-        var movieId = target.id;
-
-        json = reqwest({
-            url: 'http://omdbapi.com/?i=' + movieId,
-            crossOrigin: true,
-            success: function(resp) {
-                showMovieDetail(resp);
-            },
-            complete: function() {
-                spinner.style.display = "none";
-            }
-        });
     }
+
+    var movieId = target.id;
+
+    json = reqwest({
+        url: 'http://omdbapi.com/?i=' + movieId,
+        crossOrigin: true,
+        success: function(resp) {
+            showMovieDetail(resp);
+        },
+        complete: function() {
+            spinner.style.display = "none";
+        }
+    });
 }
 // Update page
 // ----------------------------------------------
