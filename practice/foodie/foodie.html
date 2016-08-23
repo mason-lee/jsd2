@@ -17,18 +17,28 @@
 	<input class="zip" placeholder="Zip code">
 </form>
 
-<ul class="results">
-	<script id="restaurant-template" type="text/x-handlebars-template">
+<div class="total-count"></div>
 
-		{{#each}}
-			<img src="{{image_url}}">
-	        <h2>{{name}}</h2>
-	        <p>{{address}}</p>
-		{{/each}}
+<ul class="results"></ul>
 
-	</script>
-</div>
-</ul>
+<script id="results-number-template" type="text/x-handlebars-template">
+	<div class="stats">
+		<span class="results-number">{{total_entries}} results found in {{restaurants.0.postal_code}}.</span>
+		<span>page: {{current_page}}</span>
+	</div>
+</script>
+
+<script id="restaurant-template" type="text/x-handlebars-template">
+	{{#each this}}
+	<li>
+		<img src="{{image_url}}">
+        <h2>{{name}}</h2>
+        <p>{{address}}</p>
+		<p><a href="{{reserve_url}}">Reserve</a></p>
+	</li>
+	{{/each}}
+</script>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="js/content.js"></script>
