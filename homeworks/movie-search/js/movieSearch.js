@@ -18,8 +18,8 @@ var spinner = document.querySelector(".spinner-wrapper");
 // Events
 // ----------------------------------------------
 form.addEventListener('submit', getMovieLists);
-
 results.addEventListener("click", getMovieDetails);
+
 // Event handlers
 // ----------------------------------------------
 function getMovieLists(e) {

@@ -40,7 +40,7 @@ function msgClicked(e) {
         var target = e.target;
         var voteNum = parseInt(target.parentNode.lastElementChild.innerHTML);
         voteNum = voteNum + 1;
-        
+
         console.log(voteNum);
     }
     else if (e.target.classList.contains("downVote")) {
