@@ -15,7 +15,7 @@
 <body>
   <header>
     <section class="container">
-      <a href="#"><h1>Feedr</h1></a>
+      <a href="#"><h1 class="home-link">Feedr</h1></a>
       <nav>
         <ul>
           <li>
@@ -41,9 +41,14 @@
   </header>
 
   <div id="popUp" class="loader hidden">
+  </div>
+
+  <div id="article-popup" class="hidden">
     <a href="#" class="closePopUp">X</a>
     <div class="container">
-      <h1 class="article-title"></h1>
+      <h1 class="article-title">
+
+      </h1>
       <p class="article-description">
 
       </p>
@@ -54,7 +59,7 @@
   <section id="main" class="container">
       <script id="article-template" type="text/x-handlebars-template">
           {{#each this}}
-          <article class="article">
+          <article class="article" data-index={{@index}}>
             <section class="featuredImage">
               <img src="{{urlToImage}}" />
             </section>
@@ -65,7 +70,11 @@
                 </h6>
             </section>
             <section class="impressions">
-              {{publishedAt}}
+                {{#if publishedAt}}
+                    <span>{{publishedAt}}</span>
+                {{else}}
+                    <span>Not Available</span>
+                {{/if}}
             </section>
             <div class="clearfix"></div>
           </article>
