@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/maps.css" media="screen" charset="utf-8">
+</head>
+<body>
+    <h1>
+        Google Maps Javscript API
+    </h1>
+    <div class="map"></div>
+
+    <h1>
+        Google Static Maps API
+    </h1>
+    <img src ="https://maps.googleapis.com/maps/api/staticmap?center=Berkley&zoom=12&size=500x500&maptype=satellite&key=AIzaSyCXNM-Uyc4F8XGH1ebtq5RcqLTXXVZw4ac">
+<script>
+// Elements
+var mapEl = document.querySelector(".map");
+var options = {
+    center: {lat: 37.790841, lng: -122.40128 },
+    zoom: 15
+}
+
+var map;
+
+function initMap() {
+    map = new google.maps.Map(mapEl, options);
+
+    var service = new google.maps.places.PlacesService(map);
+    // service.nearbySearch({
+    //     location: {lat: 37.790841, lng: -122.40128 },
+    //     radius: 100,
+    //     type: ['store']
+    // }, displayResults);
+
+    // function displayResults(results, status) {
+    //     results.forEach(createMarker);
+    // }
+
+    function createMarker(place) {
+        var marker = new google.maps.Marker({
+            map: map,
+            title: "GA",
+            position: place.geometry.location
+        });
+    }
+
+
+    navigator.geolocation.getCurrentPosition(updateLocation);
+    function updateLocation(position) {
+        // console.log(position.coords.latitude, position.coords.longitude);
+        // console.log(position.coords);
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        var marker = new google.maps.Marker({
+            map: map,
+            position: {
+                lat: lat,
+                lng: lng
+            }
+        });
+    }
+
+}
+
+
+</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXNM-Uyc4F8XGH1ebtq5RcqLTXXVZw4ac&callback=initMap&libraries=places" async defer></script>
+    <script type="text/javascript" src="js/maps.js"></script>
+  </body>
+</html>

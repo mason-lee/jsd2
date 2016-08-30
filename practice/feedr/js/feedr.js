@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------
 var newsApiKey = "2a24e8547c204bc5975d110569a6a2c5";
 var returnedData;
-
+var titles = [];
 // Structure
 // -----------------------------------------------------------------------
 var articleWrapper = document.querySelector("#main");
@@ -15,8 +15,9 @@ var popupArticleUrl = document.querySelector(".article-url");
 var closePopUp = document.querySelector(".closePopUp");
 var loadingPopup = document.querySelector("#popUp");
 var homeLink = document.querySelector(".home-link");
+var searchIcon = document.querySelector(".searchIcon");
+var searchInput = document.querySelector("#searchInput");
 var searchBox = document.querySelector("#search");
-
 // Templates
 // ------------------------------------------------
 var articleTemplate = document.querySelector("#article-template");
@@ -29,7 +30,8 @@ homeLink.addEventListener("click", init);
 sourceList.addEventListener("click", getNewsSource);
 articleWrapper.addEventListener("click", seeMore);
 closePopUp.addEventListener("click", togglePopUp);
-searchBox.addEventListener("click", toggleSearchBox);
+searchIcon.addEventListener("click", toggleSearchBox);
+searchInput.addEventListener("keyup", searchArticle);
 
 // Event Handlers
 // -----------------------------------------------------------------------
@@ -65,6 +67,10 @@ function getHeadLines(source) {
 // Render Articles
 function renderArticle(json) {
     returnedData = json.articles;
+    // Add titles to array for search
+    returnedData.forEach(function(e, i) {
+        titles.push(returnedData[i].title.toLowerCase());
+    });
     // Compiling the template source. Template function returns String!
     var template = Handlebars.compile(articleTemplate.innerHTML);
     articleWrapper.innerHTML = template(returnedData);
@@ -81,6 +87,22 @@ function seeMore(e) {
     togglePopUp();
 }
 
+// Search aticles
+function searchArticle() {
+    // console.log(titles);
+    var userInput = searchInput.value;
+    // var tempArray = [];
+    titles.forEach(function(e, i) {
+        if (titles[i].match(userInput)) {
+            // console.log(titles[i], i);
+            var searchResult = document.querySelectorAll('[data-index="'+i+'"]');
+            // tempArray.push(searchResult);
+            console.log(searchResult);
+        }
+    });
+}
+
+// Toggle popUp
 function togglePopUp() {
     popup.classList.toggle("hidden");
 }
