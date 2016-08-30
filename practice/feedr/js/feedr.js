@@ -15,6 +15,7 @@ var popupArticleUrl = document.querySelector(".article-url");
 var closePopUp = document.querySelector(".closePopUp");
 var loadingPopup = document.querySelector("#popUp");
 var homeLink = document.querySelector(".home-link");
+var searchBox = document.querySelector("#search");
 
 // Templates
 // ------------------------------------------------
@@ -28,6 +29,7 @@ homeLink.addEventListener("click", init);
 sourceList.addEventListener("click", getNewsSource);
 articleWrapper.addEventListener("click", seeMore);
 closePopUp.addEventListener("click", togglePopUp);
+searchBox.addEventListener("click", toggleSearchBox);
 
 // Event Handlers
 // -----------------------------------------------------------------------
@@ -82,3 +84,13 @@ function seeMore(e) {
 function togglePopUp() {
     popup.classList.toggle("hidden");
 }
+
+// Toggle Searchbox
+function toggleSearchBox() {
+    searchBox.classList.toggle("active");
+}
+
+// Format date
+Handlebars.registerHelper("formatDate", function(publishedAt) {
+    return Date.parse(publishedAt).toString('MMMM dS, yyyy');
+});

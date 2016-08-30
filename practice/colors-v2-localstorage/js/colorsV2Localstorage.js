@@ -3,14 +3,12 @@
 var body = document.querySelector('body');
 var ul = document.querySelector('ul');
 
-
 // Events
 // ----------------
 ul.addEventListener('click', clickColor);
 window.addEventListener('load', restoreColor);
 
-
-function restoreColor(e) {
+var restoreColor = function(e) {
 
 	// get the saved theme from localStorage
 	var theme = localStorage.getItem("theme");
@@ -27,7 +25,7 @@ function restoreColor(e) {
 	changeColor(theme.color);
 }
 
-function clickColor(e) {
+var clickColor = function(e) {
 	console.log('clickColor', e.target);
 
 	// Event Delegation
@@ -49,8 +47,7 @@ function clickColor(e) {
 }
 
 
-function changeColor(color) {
+var changeColor = function(color) {
 	console.log('change', color);
 	body.className = color;
 }
-
