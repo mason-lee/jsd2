@@ -248,3 +248,7 @@ nav ul ul li {
   text-align: right;
   color: #097FB2;
 }
+
+.article-highlight {
+    background-color: red;
+}

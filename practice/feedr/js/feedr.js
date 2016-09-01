@@ -91,16 +91,28 @@ function seeMore(e) {
 function searchArticle() {
     // console.log(titles);
     var userInput = searchInput.value;
-    // var tempArray = [];
+    var tempArray = [];
     titles.forEach(function(e, i) {
         if (titles[i].match(userInput)) {
             // console.log(titles[i], i);
+            // clearArticleClassName();
             var searchResult = document.querySelectorAll('[data-index="'+i+'"]');
-            // tempArray.push(searchResult);
             console.log(searchResult);
+            tempArray.push(searchResult);
+            console.log(tempArray);
+            // tempArray.forEach(function(e, i) {
+            //     tempArray[i][0].classList.add("article-highlight");
+            // });
         }
     });
 }
+//
+// function clearArticleClassName() {
+//     var allArticles = document.querySelectorAll(".article");
+//     allArticles.forEach(function(e,i) {
+//         allArticles[i].classList.remove("article-highlight");
+//     });
+// }
 
 // Toggle popUp
 function togglePopUp() {
